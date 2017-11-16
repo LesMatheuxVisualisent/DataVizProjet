@@ -21,3 +21,5 @@ ce package est "disponible" (https://cran.r-project.org/web/packages/osrm/README
    
 On pourrait peut-être penser à (aprrendre à) utiliser cette carte.
 
+Liste des 36000 communes françaises avec longitudes et latitudes en `.csv` https://www.data.gouv.fr/fr/datasets/listes-des-communes-geolocalisees-par-regions-departements-circonscriptions-nd/
+
