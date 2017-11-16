@@ -1,0 +1,265 @@
+Classement	Ville	Région	Nb habitants
+1	Paris	Île-de-France	2 240 621
+2	Marseille	Provence-Alpes-Côte d'Azur	852 516
+3	Lyon	Rhône-Alpes	496 343
+4	Toulouse	Midi-Pyrénées	453 317
+5	Nice	Provence-Alpes-Côte d'Azur	343 629
+6	Nantes	Pays de la Loire	291 604
+7	Strasbourg	Alsace	274 394
+8	Montpellier	Languedoc-Roussillon	268 456
+9	Bordeaux	Aquitaine	241 287
+10	Lille	Nord-Pas-de-Calais	228 652
+11	Rennes	Bretagne	209 860
+12	Reims	Champagne-Ardenne	181 893
+13	Le Havre	Haute-Normandie	173 142
+14	Saint-Étienne	Rhône-Alpes	171 483
+15	Toulon	Provence-Alpes-Côte d'Azur	164 899
+16	Grenoble	Rhône-Alpes	158 346
+17	Dijon	Bourgogne	152 071
+18	Angers	Pays de la Loire	149 017
+19	Nîmes	Languedoc-Roussillon	146 709
+20	Villeurbanne	Rhône-Alpes	146 282
+21	Saint-Denis	La Réunion	145 238
+22	Le Mans	Pays de la Loire	143 599
+23	Clermont-Ferrand	Auvergne	141 569
+24	Aix-en-Provence	Provence-Alpes-Côte d'Azur	141 148
+25	Brest	Bretagne	139 676
+26	Limoges	Limousin	136 221
+27	Tours	Centre-Val de Loire	134 978
+28	Amiens	Picardie	132 727
+29	Perpignan	Languedoc-Roussillon	120 489
+30	Metz	Lorraine	119 551
+31	Boulogne-Billancourt	Île-de-France	117 126
+32	Besançon	Franche-Comté	116 353
+33	Orléans	Centre-Val de Loire	114 286
+34	Rouen	Haute-Normandie	111 557
+35	Mulhouse	Alsace	110 755
+36	Caen	Basse-Normandie	108 365
+37	Saint-Denis	Île-de-France	108 274
+38	Nancy	Lorraine	105 067
+39	Argenteuil	Île-de-France	104 962
+40	Saint-Paul	La Réunion	104 646
+41	Montreuil	Île-de-France	103 520
+42	Roubaix	Nord-Pas-de-Calais	94 536
+43	Tourcoing	Nord-Pas-de-Calais	92 707
+44	Dunkerque	Nord-Pas-de-Calais	90 995
+45	Nanterre	Île-de-France	90 722
+46	Créteil	Île-de-France	89 845
+47	Avignon	Provence-Alpes-Côte d'Azur	89 380
+48	Vitry-sur-Seine	Île-de-France	88 102
+49	Poitiers	Poitou-Charentes	87 646
+50	Courbevoie	Île-de-France	86 854
+51	Fort-de-France	Martinique	85 667
+52	Versailles	Île-de-France	85 424
+53	Colombes	Île-de-France	85 357
+54	Asnières-sur-Seine	Île-de-France	83 845
+55	Aulnay-sous-Bois	Île-de-France	81 899
+56	Saint-Pierre	La Réunion	80 823
+57	Rueil-Malmaison	Île-de-France	79 563
+58	Pau	Aquitaine	78 506
+59	Aubervilliers	Île-de-France	77 032
+60	Champigny-sur-Marne	Île-de-France	75 869
+61	Le Tampon	La Réunion	75 631
+62	Antibes	Provence-Alpes-Côte d'Azur	75 568
+63	Saint-Maur-des-Fossés	Île-de-France	74 176
+64	La Rochelle	Poitou-Charentes	74 123
+65	Cannes	Provence-Alpes-Côte d'Azur	73 603
+66	Béziers	Languedoc-Roussillon	72 970
+67	Calais	Nord-Pas-de-Calais	72 589
+68	Saint-Nazaire	Pays de la Loire	67 940
+69	Colmar	Alsace	67 257
+70	Drancy	Île-de-France	67 181
+71	Bourges	Centre-Val de Loire	66 666
+72	Mérignac	Aquitaine	66 660
+73	Ajaccio	Corse	66 245
+74	Issy-les-Moulineaux	Île-de-France	65 322
+75	Levallois-Perret	Île-de-France	64 654
+76	La Seyne-sur-Mer	Provence-Alpes-Côte d'Azur	63 902
+77	Quimper	Bretagne	63 360
+78	Noisy-le-Grand	Île-de-France	62 592
+79	Valence	Rhône-Alpes	62 481
+80	Villeneuve-d'Ascq	Nord-Pas-de-Calais	62 308
+81	Neuilly-sur-Seine	Île-de-France	62 021
+82	Antony	Île-de-France	61 624
+83	Vénissieux	Rhône-Alpes	61 183
+84	Cergy	Île-de-France	60 528
+85	Troyes	Champagne-Ardenne	60 009
+86	Clichy	Île-de-France	59 240
+87	Pessac	Aquitaine	59 223
+88	Les Abymes	Guadeloupe	58 606
+89	Ivry-sur-Seine	Île-de-France	58 579
+90	Chambéry	Rhône-Alpes	58 039
+91	Lorient	Bretagne	57 706
+92	Niort	Poitou-Charentes	57 607
+93	Sarcelles	Île-de-France	57 499
+94	Montauban	Midi-Pyrénées	56 887
+95	Villejuif	Île-de-France	56 504
+96	Saint-Quentin	Picardie	56 217
+97	Hyères	Provence-Alpes-Côte d'Azur	55 402
+98	Cayenne	Guyane	55 198
+99	Épinay-sur-Seine	Île-de-France	55 140
+100	Saint-André	La Réunion	54 721
+101	Beauvais	Picardie	54 289
+102	Maisons-Alfort	Île-de-France	54 186
+103	Cholet	Pays de la Loire	54 181
+104	Meaux	Île-de-France	53 623
+105	Chelles	Île-de-France	53 247
+106	Pantin	Île-de-France	53 060
+107	Fontenay-sous-Bois	Île-de-France	52 998
+108	La Roche-sur-Yon	Pays de la Loire	52 808
+109	Bondy	Île-de-France	52 787
+110	Vannes	Bretagne	52 648
+111	Saint-Louis	La Réunion	52 614
+112	Fréjus	Provence-Alpes-Côte d'Azur	52 532
+113	Arles	Provence-Alpes-Côte d'Azur	52 439
+114	Clamart	Île-de-France	52 408
+115	Évry	Île-de-France	52 349
+116	Le Blanc-Mesnil	Île-de-France	52 213
+117	Narbonne	Languedoc-Roussillon	51 869
+118	Sartrouville	Île-de-France	51 713
+119	Grasse	Provence-Alpes-Côte d'Azur	51 021
+120	Annecy	Rhône-Alpes	50 943
+121	Laval	Pays de la Loire	50 658
+122	Belfort	Franche-Comté	50 102
+123	Vincennes	Île-de-France	49 831
+124	Charleville-Mézières	Champagne-Ardenne	49 759
+125	Évreux	Haute-Normandie	49 634
+126	Sevran	Île-de-France	49 442
+127	Albi	Midi-Pyrénées	49 231
+128	Montrouge	Île-de-France	48 909
+129	Bobigny	Île-de-France	48 496
+130	Martigues	Provence-Alpes-Côte d'Azur	47 624
+131	Saint-Ouen	Île-de-France	47 499
+132	Brive-la-Gaillarde	Limousin	47 411
+133	Suresnes	Île-de-France	47 263
+134	Carcassonne	Languedoc-Roussillon	47 068
+135	Cagnes-sur-Mer	Provence-Alpes-Côte d'Azur	46 686
+136	Corbeil-Essonnes	Île-de-France	46 017
+137	Saint-Brieuc	Bretagne	45 936
+138	Blois	Centre-Val de Loire	45 903
+139	Bayonne	Aquitaine	45 855
+140	Aubagne	Provence-Alpes-Côte d'Azur	45 243
+141	Châlons-en-Champagne	Champagne-Ardenne	45 225
+142	Meudon	Île-de-France	45 107
+143	Châteauroux	Centre-Val de Loire	44 960
+144	Saint-Malo	Bretagne	44 620
+145	Chalon-sur-Saône	Bourgogne	44 564
+146	Sète	Languedoc-Roussillon	44 558
+147	Puteaux	Île-de-France	44 514
+148	Alfortville	Île-de-France	44 397
+149	Salon-de-Provence	Provence-Alpes-Côte d'Azur	43 771
+150	Massy	Île-de-France	43 524
+151	Mantes-la-Jolie	Île-de-France	43 515
+152	Bastia	Corse	43 479
+153	Vaulx-en-Velin	Rhône-Alpes	43 394
+154	Saint-Herblain	Pays de la Loire	43 287
+155	Le Cannet	Provence-Alpes-Côte d'Azur	43 115
+156	Valenciennes	Nord-Pas-de-Calais	42 989
+157	Istres	Provence-Alpes-Côte d'Azur	42 944
+158	Gennevilliers	Île-de-France	42 919
+159	Boulogne-sur-Mer	Nord-Pas-de-Calais	42 785
+160	Livry-Gargan	Île-de-France	42 699
+161	Saint-Priest	Rhône-Alpes	42 488
+162	Rosny-sous-Bois	Île-de-France	42 080
+163	Caluire-et-Cuire	Rhône-Alpes	42 038
+164	Angoulême	Poitou-Charentes	42 014
+165	Douai	Nord-Pas-de-Calais	41 732
+166	Tarbes	Midi-Pyrénées	41 664
+167	Wattrelos	Nord-Pas-de-Calais	41 633
+168	Castres	Midi-Pyrénées	41 529
+169	Choisy-le-Roi	Île-de-France	41 507
+170	Talence	Aquitaine	41 358
+171	Thionville	Lorraine	41 325
+172	Arras	Nord-Pas-de-Calais	41 239
+173	Alès	Languedoc-Roussillon	41 031
+174	Garges-lès-Gonesse	Île-de-France	41 001
+175	Gap	Provence-Alpes-Côte d'Azur	40 761
+176	Saint-Laurent-du-Maroni	Guyane	40 597
+177	Melun	Île-de-France	40 503
+178	Bourg-en-Bresse	Rhône-Alpes	40 171
+179	Noisy-le-Sec	Île-de-France	40 161
+180	Compiègne	Picardie	40 028
+181	La Courneuve	Île-de-France	39 859
+182	Le Lamentin	Martinique	39 700
+183	Marcq-en-Barœul	Nord-Pas-de-Calais	39 600
+184	Saint-Germain-en-Laye	Île-de-France	39 476
+185	Rezé	Pays de la Loire	39 377
+186	Bron	Rhône-Alpes	39 232
+187	Anglet	Aquitaine	39 223
+188	Gagny	Île-de-France	39 172
+189	Chartres	Centre-Val de Loire	38 889
+190	Bagneux	Île-de-France	38 398
+191	Saint-Martin-d'Hères	Rhône-Alpes	38 105
+192	Montluçon	Auvergne	38 072
+193	Pontault-Combault	Île-de-France	37 631
+194	Poissy	Île-de-France	37 597
+195	Draguignan	Provence-Alpes-Côte d'Azur	37 476
+196	Joué-lès-Tours	Centre-Val de Loire	37 196
+197	Savigny-sur-Orge	Île-de-France	37 135
+198	Cherbourg-Octeville	Basse-Normandie	37 121
+199	Saint-Joseph	La Réunion	37 069
+200	Le Port	La Réunion	36 952
+201	Colomiers	Midi-Pyrénées	36 699
+202	Saint-Martin		36 622
+203	Villefranche-sur-Saône	Rhône-Alpes	36 241
+204	Stains	Île-de-France	36 155
+205	Saint-Benoît	La Réunion	36 025
+206	Échirolles	Rhône-Alpes	35 826
+207	Villepinte	Île-de-France	35 820
+208	Roanne	Rhône-Alpes	35 799
+209	Montélimar	Rhône-Alpes	35 704
+210	Saint-Chamond	Rhône-Alpes	35 564
+211	Nevers	Bourgogne	35 327
+212	Conflans-Sainte-Honorine	Île-de-France	35 135
+213	Auxerre	Bourgogne	35 096
+214	Sainte-Geneviève-des-Bois	Île-de-France	35 035
+215	Châtillon	Île-de-France	34 960
+216	Bagnolet	Île-de-France	34 920
+217	Vitrolles	Provence-Alpes-Côte d'Azur	34 843
+218	Thonon-les-Bains	Rhône-Alpes	34 661
+219	Neuilly-sur-Marne	Île-de-France	34 658
+220	Haguenau	Alsace	34 406
+221	Marignane	Provence-Alpes-Côte d'Azur	34 405
+222	Saint-Raphaël	Provence-Alpes-Côte d'Azur	34 115
+223	Tremblay-en-France	Île-de-France	34 081
+224	La Ciotat	Provence-Alpes-Côte d'Azur	34 063
+225	Six-Fours-les-Plages	Provence-Alpes-Côte d'Azur	34 057
+226	Creil	Picardie	33 936
+227	Agen	Aquitaine	33 730
+228	Romans-sur-Isère	Rhône-Alpes	33 701
+229	Montigny-le-Bretonneux	Île-de-France	33 680
+230	Le Perreux-sur-Marne	Île-de-France	33 248
+231	Franconville	Île-de-France	33 196
+232	Annemasse	Rhône-Alpes	33 166
+233	Villeneuve-Saint-Georges	Île-de-France	32 994
+234	Saint-Leu	La Réunion	32 971
+235	Mâcon	Bourgogne	32 917
+236	Cambrai	Nord-Pas-de-Calais	32 847
+237	Lens	Nord-Pas-de-Calais	32 663
+238	Houilles	Île-de-France	32 399
+239	Épinal	Lorraine	32 387
+240	Châtenay-Malabry	Île-de-France	32 198
+241	Schiltigheim	Alsace	31 691
+242	Sainte-Marie	La Réunion	31 596
+243	Liévin	Nord-Pas-de-Calais	31 580
+244	Châtellerault	Poitou-Charentes	31 537
+245	Meyzieu	Rhône-Alpes	31 493
+246	Goussainville	Île-de-France	31 255
+247	Viry-Châtillon	Île-de-France	31 221
+248	Dreux	Centre-Val de Loire	31 195
+249	L'Haÿ-les-Roses	Île-de-France	31 168
+250	Plaisir	Île-de-France	31 119
+251	Mont-de-Marsan	Aquitaine	31 018
+252	Maubeuge	Nord-Pas-de-Calais	30 994
+253	Nogent-sur-Marne	Île-de-France	30 884
+254	Les Mureaux	Île-de-France	30 760
+255	Clichy-sous-Bois	Île-de-France	30 720
+256	La Possession	La Réunion	30 653
+257	Dieppe	Haute-Normandie	30 632
+258	Chatou	Île-de-France	30 585
+259	Vandœuvre-lès-Nancy	Lorraine	30 569
+260	Malakoff	Île-de-France	30 420
+261	Palaiseau	Île-de-France	30 268
+262	Pontoise	Île-de-France	30 164
+263	Charenton-le-Pont	Île-de-France	30 148
+264	Rillieux-la-Pape	Rhône-Alpes	30 140
