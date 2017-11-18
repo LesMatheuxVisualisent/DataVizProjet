@@ -1,1 +1,0 @@
-https://maps.googleapis.com/maps/api/distancematrix/json?origins=Paris|Marseille|Lyon|Toulouse|Nice|Nantes|Strasbourg|Montpellier|Bordeaux|Lille&destinations=Paris|Marseille|Lyon|Toulouse|Nice|Nantes|Strasbourg|Montpellier|Bordeaux|Lille&mode=driving&language=fr-FR&key=AIzaSyBUOXA2bqxMQthVKRMlq3IjaRrixd3eZ0E
