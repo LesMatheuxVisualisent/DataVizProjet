@@ -1,11 +1,22 @@
-The data of travelling time between two geographical points on the globe are extremely voluminous and can be obtained e.g. through a googlepmaps API,
+The data of travelling time between two geographical points on the globe are extremely rich and can be obtained e.g. through a googlepmaps API,
 by sending a request in form of a URL, in which information such as city of departure, city of arrival, means of transportation (train or automobile)
 and travelling date should be specified.  
   
 For the reason that as users of the free version of this service we are only allowed to initiate requests with a very limited numbers of cities of departure and 
 arrival (10 at a time), it is necessary to automize the procedure of data acquisition. In order to do this we've written a program in Python which,
 based on a series of French cities numbered after their population size, chooses at each time a different range of departure and arrivial cities, indicates
-as well the transport means and date that we need, returns finally the URL of right format including this information which can be accepted by the GOogle API. 
-Once we get the reponses of our requests in the form of a .json file, we then feed it to another Python program which in its turn associates
-a number of departure city, a number of arrival city, a transpotation means and a date to each of the responses.  
+as well the transport means and date that we need, returns finally the URL of right format including this information which can be accepted by the Google API. 
+Once we get the reponses to our requests in the form of a .json file, we then feed it to another Python program which in its turn decodes the travelling time
+of each of the responses
+given a number of departure city, a number of arrival city, a transpotation means and a date.  
+
+The number of journeys to be treated in our problem increases at a square speed as that of the cities we will consider. Thus, it's simply impossible to
+take into account all places that one can name all over the country. However, we still would like to enable a single query of such kind initiated
+by the user. For exemple, we could let the user to enter in a field an arbitrary place of his choice in order to obtain its accessibility.
+
+### 3.2 Visualization structure
+
+
+
+
   
