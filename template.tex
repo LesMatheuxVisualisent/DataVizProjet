@@ -73,7 +73,7 @@
 
 %% Paper title.
 
-\title{Temps de trajet en France métropolitaine}
+\title{The accessibility of cities in metropolitan France}
 
 %% This is how authors are specified in the conference style
 
@@ -102,9 +102,7 @@
 %}
 
 %% Abstract section.
-\abstract{L'objectif de ce travail est d'étudier le degré d'accessibilité de l'ensemble des principales zones urbaines en France métropolitaine.  
-
-Nous souhaitons mettre en place plusieurs présentations: Une première présentation qui doit etre une synthese de ce travail, capable de résumer en une seule carte et de facon immédiate le degré d'accessibilité de chaque ville de France. Cette présentation sera développée par des cartes interactives du territoire, explorant pour chaque ville cible sa rapidité d'accès pour chaque point de départ sur le territoire. Enfin, nous souhaitons mettre en place un comparatif des temps de trajets entre le moyens de transports voiture/train, afin de donner une décision du mode de transport à priviliégier.
+\abstract{The degree of accessibility of a city has an impact until its own identity, since it possesses deep effects on the demography, the activity and the culture of the city. In this work we propose a solution to visualize such an accessibility factor for a city, through the case of main cities of metropolitan France. After a brief presentation on existing studies of the socio-economic impact of city accessibility, we shall provide a detailed presentation of our visualization solution. We then conclude with a discussion on the possibilities to complete this visualization.
 } % end of abstract
 
 %% ACM Computing Classification System (CCS). 
@@ -142,8 +140,9 @@ Nous souhaitons mettre en place plusieurs présentations: Une première présent
 \firstsection{Introduction}
 
 \maketitle
+L'accessibilité d'une région au regard du monde extérieur a un impact énorme sur tous les aspects de la vie des habitants de cette région. Une facilité d'acces engrange un bassin d'attraction des cultures, des richesses et des savoir-faires. Ces phéniomènes faconnent naturellement l'identité de la région elle-meme, et de maniere générale tout le territoire.
 
-La mobilité au sein d'une population possède un impact sur de nombreux facteurs de cette population. Une facilité de déplacement admet généralement un impact positif sur les indicateurs économiques de cette population \cite{}. Ceci repose notamment sur la facilité de diffusion de connaissance, de culture et plus généralement de savoir-faire. Des effets bénéfiques notables sur la culture, la connaissance ainsi que sur le bien-etre ont également été observés. Une fluidité de déplacement possède enfin un impact sur l'homogénéisation de la population concernée.
+
 
 Dans ce travail nous souhaitons étudier comment l'accessibilité se répartit sur le territoire de France métropolitaine. L'objectif est ici de présenter une synthese de cette accessibilité, ainsi que d'une présentation ville par ville. Une présentation sur carte sera l'objet central de cette etude, l'intéret principal étant qu'elle offre une répartition réaliste des villes sur le territoire ainsi qu'une lecture immédiate de l'information. 
 
@@ -166,7 +165,23 @@ Des représentations similaires pour le grand public sont accessibles \cite{LeMo
 
 \vspace{0.3cm}
 
+
+
+La mobilité au sein d'une population possède un impact sur de nombreux facteurs de cette population. Une facilité de déplacement admet généralement un impact positif sur les indicateurs économiques de cette population \cite{}. Ceci repose notamment sur la facilité de diffusion de connaissance, de culture et plus généralement de savoir-faire. Des effets bénéfiques notables sur la culture, la connaissance ainsi que sur le bien-etre ont également été observés. Une fluidité de déplacement possède enfin un impact sur l'homogénéisation de la population concernée.
+
+augmentation de la productivité des entreprises (nouveaux liens entre acteurs, fluidification des échanges, réduction des couts, réduction de l'impact environnemental, créations d'emplois directs). Concentration de l'activité dans les centres névralgiques de réseaux. Une répartition uniforme des voies de transport au sein d'un territoire permet la formation de zones économiquement autonomes.
+
+Une mauvaise accessibilité peut etre une raison suffisante pour un bachelier de ne pas effectuer ses études dans ladite région
+
+L'accessibilité peut revetir une importance stratégique, qu'elle soit routiere, par chemin de fer ou par avion, pour attirer touristes, investisseurs et personnel compétent. 
+
+L'étude des phénomenes de concentration de population (et donc de la puissance economique) en certains poles prend évidement en compte l'accessibilité de ces poles comme facteur d'accélération de cette concentration et l'excusivité de ces poles \cite{RePEc:mtp:titles:0262561476}.
+
 \subsection{Travaux existants}
+
+De nombreuses visualisation de l'état du traffic à grande échelle (et à petite échelle) sont disponibles, pour une discussion à ce propos on pourra consulter \cite{schoedon2016interactive}. 
+
+La quantité d'articles traitant de l'impact des réseaux de transport sur la société est immense. Des revues entieres sont dédiées à ce sujet. Pour une lecture de certains aspects de l'impact de la géométrie du réseau de chemain de fer on pourra par exemple lire \cite{cao2017investigating} et les references mentionnées.
 
 
 \section{Présentation de la visualisation}
@@ -177,7 +192,7 @@ Des représentations similaires pour le grand public sont accessibles \cite{LeMo
 
 \vspace{0.3cm}
 
-La donnée concernant les temps de trajet entre deux points du globe (d'une meme composante connexe) est extremmenent abondante, et fournie par un service de Google disponible sur  . Cette donnée s'obtient apres le lancement d'unre requete sous la forme d'une URL, dans laquelle est spécifiée le groupe de villes de départ, de viles darrivées, ainsi que le mode de transport (voiture/train) ainsi que la date à considérer. 
+La donnée concernant les temps de trajet entre deux points du globe (d'une meme composante connexe) est extremmenent abondante, et fournie par un service de Google disponible sur l'API dédiée de Google \cite{APIGoogle}. Cette donnée s'obtient apres le lancement d'unre requete sous la forme d'une URL, dans laquelle est spécifiée le groupe de villes de départ, de villes d'arrivées, ainsi que le mode de transport (voiture/train) ainsi que la date à considérer. 
 
 Chaque requete doit posséder un nombre séverement limité de villes de dépoart et d'arrivée (au plus dix). Face à cette contrainte, il a été nécessaire d'automatiser la procédure d'aquisition. Pour se faire on se base sur une liste des villes de france numérotées par population (disponible sur ), et on utilise un petit script python qui à un intervalle de numéros villes de départ, un intervalle de numéros de villes d'arrivées, un mode de transport et une date retourne l'URL qui fournit ces données. Chaque résultat de requete est alors stocké dans un fichier .json, et un autre script Python permet, basé sur l'ensemble de ces données aquises, d'associer à un numéro de ville de départ, de ville d'arrivée, de mode de transport et de date le temps de trajet souhaité. 
 
@@ -196,7 +211,7 @@ INSERT VIZU HERE
 \end{center}
 
 
-Nous mettons également à disponibilité la possibilité de sélectionner les deux modes de transport: Dans ce cas, étant donnée une ville sélectionnée, la carte présente alors une partition bicolore du territoire, selon le mode de transport le plus avantageux pour se rendre en ce point. Là encore, une représentation en carte donne un apercu immédiat de la proportion de territoire la plus accessible en train ou en voiture.
+Nous mettons également à disponibilité la possibilité de sélectionner les deux modes de transport: Dans ce cas, étant donnée une ville sélectionnée, la carte présente alors une partition bicolore du territoire, selon le mode de transport le plus avantageux pour se rendre en ce point. Là encore, une représentation en carte donne un comparatif immédiat du mode de transport à privilégier pour un déplacement.
 
 \subsection{Implémentation}
 
