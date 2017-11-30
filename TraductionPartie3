@@ -19,7 +19,7 @@ by the user. For exemple, we could let the user to enter in a field an arbitrary
 The visualization of cities accessibility starts in the first place with a synthetic view: a topographic map of France, where "mountains" represent cities
 that are easier to access and valleys the ones who have a lower accessibility.  
   
-The main part of the visualization takes the form of a national map as well. But here, the user is asked to position his cursor over a city.
+The main part of the visualization takes the form of a national map as well. However, here, the user is asked to position his cursor over a city.
 This action will trigger off a coloration of the maps, whether in gradually changing gray or in contour blocks, as being shown in the figure, where
 the shade of the color represents the travelling time from other places of France to this city (or the other way round from this city to other places).
 The advantages to use a colored map in our visualization are here very clear: one can not only rapidly grasp the accessiblity of other places in France
@@ -31,7 +31,7 @@ each of them representing respectively train or car, indicating the quicker way 
 it could bring immediately the competitivity of both transportations means to light.
 
 
-
+### 3.3 Inplementation 
 
 
   
