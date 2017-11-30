@@ -38,10 +38,13 @@ As a result, among all technique details, our first concern will be to select th
 For this reason, our choice could go for a topographic map, which allows us to manipulate the average accessibilities of the cities directly. It could
 also be a voronoi map, as each cell can represents roughly a French Commune so that it will make it easier to extend the pointwise distances to the whole plane.
 
-The second useful thought which could possibly rend our visualization even more user-friendly is, once a city is selected by the user, if we will connnect 
+The second useful thought which could possibly rend our visualization even more user-friendly is, once a city is selected by the user, if or not we will connnect 
 other main French cities with this one using a arc, just like an airway course map with the travelling time in number in the middle over each arc. Moreover, we could  
 eventually consider to animate them so that an arc joining faster the selected city represents a shorter travelling time etc.
 
-Since we would like to construct a continous color map instead of only colored cities, but on the other hand it is impossible to include every place of France
-in our culcalation of distances like we explained above, a solution of approximation need to be found for less populated cities and villages. For instance, ...
+Since we would like to construct a continous color map instead of isolated colorful cities, while on the other hand it is impossible to include every place of France
+in our culcalation of distances like we explained above, a solution of approximation need to be found for less populated cities and villages. For instance, a 
+treatment using a Voronoi map could be employed just like mentioned previously. But we can also solve this problem more mathematically.
+
+
 
