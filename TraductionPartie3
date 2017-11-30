@@ -17,7 +17,7 @@ by the user. For exemple, we could let the user to enter in a field an arbitrary
 ### 3.2 Visualization structure
 
 The visualization of cities accessibility starts in the first place with a synthetic view: a topographic map of France, where "mountains" represent cities
-that are easier to access and valleys the ones who have a lower accessibility.  
+that are easier to access in general and valleys the ones who have a lower mean accessibility.  
   
 The main part of the visualization takes the form of a national map as well. However, here, the user is asked to position his cursor over a city.
 This action will trigger off a coloration of the maps, whether in gradually changing gray or in contour blocks, as being shown in the figure, where
@@ -26,12 +26,19 @@ The advantages to use a colored map in our visualization are here very clear: on
 with respect to this city, but the comparison of the distances in terms of travelling time to the geographical ones is also immediate.
 It is noteworthy as well that we offer the user two options in the visualization: he could switch between railway and automobile as transportation means and between
 summer and winter as the season that the journey should take place, for the reason that depending on the month of a year, the SNCF timtable and tha road condition of the highways could also vary.
-Forthermore, we also give the user the possiblity to select both of the tranportation means. In that case, the map will be display with two colors,
-each of them representing respectively train or car, indicating the quicker way to get to a place. Again, such representation with a colored map is attractive, in the way that
+Plus, we give the user the possiblity to select both of the tranportation means. In that case, the map will be displayed with two colors,
+each of them representing respectively train or car, indicating the quicker way to get to a place. Again, we find such representation with a colored map very attractive, in the way that
 it could bring immediately the competitivity of both transportations means to light.
 
 
 ### 3.3 Inplementation 
-
+In our project, the javascript library d3.js will be our top priority as a visualizing tool, 
+not only for its high compatibility with geodata, but also for the wide variety it offers in terms of graphical expressivity of a map. 
+As a result, among all technique details, our first concern will be to select the appropriate d3 template which could be as suitable as possible for our data type.
+For this reason, our choice could go for a topographic map, which allows us to manipulate the average accessibilities of the cities directly. It could
+also be a voronoi map, as each cell can represents roughly a French Commune so that it will make it easier to extend the pointwise distances to the whole plane.
+The second useful thought which could possibly rend our visualization even more user-friendly is, once a city is selected by the user, if we will connnect 
+other main French cities with this one using a arc, just like an airway course map with the travelling time in number in the middle over each arc. Moreover, we could  
+eventually consider to animate them so that an arc that joining faster the selected city represents a shorter travelling time etc.
 
   
