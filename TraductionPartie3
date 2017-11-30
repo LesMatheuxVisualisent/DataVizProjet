@@ -37,9 +37,11 @@ not only for its high compatibility with geodata, but also for the wide variety 
 As a result, among all technique details, our first concern will be to select the appropriate d3 template which could be as suitable as possible for our data type.
 For this reason, our choice could go for a topographic map, which allows us to manipulate the average accessibilities of the cities directly. It could
 also be a voronoi map, as each cell can represents roughly a French Commune so that it will make it easier to extend the pointwise distances to the whole plane.
+
 The second useful thought which could possibly rend our visualization even more user-friendly is, once a city is selected by the user, if we will connnect 
 other main French cities with this one using a arc, just like an airway course map with the travelling time in number in the middle over each arc. Moreover, we could  
 eventually consider to animate them so that an arc joining faster the selected city represents a shorter travelling time etc.
+
 Since we would like to construct a continous color map instead of only colored cities, but on the other hand it is impossible to include every place of France
 in our culcalation of distances like we explained above, a solution of approximation need to be found for less populated cities and villages. For instance, ...
 
