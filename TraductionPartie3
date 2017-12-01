@@ -1,3 +1,6 @@
+
+### 3.1 Data acquisition
+
 The data of travelling time between two geographical points on the globe are extremely rich and can be obtained e.g. through a googlepmaps API,
 by sending a request in form of a URL, in which information such as city of departure, city of arrival, means of transportation (railway or automobile)
 and travelling date should be specified.  
@@ -43,8 +46,8 @@ other main French cities with this one using a arc, just like an airway course m
 eventually consider to animate them so that an arc joining faster the selected city represents a shorter travelling time etc.
 
 Since we would like to construct a continous color map instead of isolated colorful cities, while on the other hand it is impossible to include every place of France
-in our culcalation of distances like we explained above, a solution of approximation need to be found for less populated cities and villages. For instance, a 
-treatment using a Voronoi map could be employed just like mentioned previously. But we can also solve this problem more mathematically.
+in our calculation of distances like we explained above, a solution of approximation need to be found for less populated cities and villages. For instance, a 
+treatment using a Voronoi map could be employed just like mentioned previously. But we can also solve this problem more mathematically e.g. using interpolation methods.
 
 
 
