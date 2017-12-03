@@ -49,5 +49,10 @@ Since we would like to construct a continous color map instead of isolated color
 in our calculation of distances like we explained above, a solution of approximation need to be found for less populated cities and villages. For instance, a 
 treatment using a Voronoi map could be employed just like mentioned previously. But we can also solve this problem more mathematically e.g. using interpolation methods.
 
-
+## 2. Related work
+### 2.1 Socio-economic impact of accessibility
+The accessibility of a city has no doubt a remarkable impact on the socio-economic aspect. For instance, this study here explains the relation
+between the effectiveness of the intra-urbain transportation network and the labour market of principal French cities.
+... (deja traduit)
+In our work, 
 
