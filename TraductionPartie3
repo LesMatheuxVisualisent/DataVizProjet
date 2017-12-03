@@ -63,3 +63,12 @@ A more interactive and more recent visualization of the same subject yet focused
 In fact, articles discussing the impact of the transportation network on the scociety are numerous and even a pack of revues are dedicated to this domain.
 [3] and the references therein gives more sights of the impact of the geometry of the railway network for further reading.
 
+## 4. Conclusion and perspectives
+In this work we have presented a visualization method of the accessibiliyt of a city in Metropolitain France. We privileged a map structure
+which is simple, intuitive but also effective. A structure that could be further perfected in many ways.
+A question that one can ask next, is if a well accessible city represents finally also a significant destination. Reversly, a city with high traffic flows
+does it really meet the need of accessibility of the travellers?
+
+Another useful perspective is taht we could eventually, in our calculation of general accessibility of a city, put weights to travelling times
+from or to other cities by a factor of the reverse of their geographical distances. In fact, one can natually consider that the accessibility of
+a city has a much more important meaning to its neighborhooid than to some other city 300 km away. Of course a such modification would need more mathematical treatments.
