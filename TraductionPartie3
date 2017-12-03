@@ -69,6 +69,12 @@ which is simple, intuitive but also effective. A structure that could be further
 A question that one can ask next, is if a well accessible city represents finally also a significant destination. Reversly, a city with high traffic flows
 does it really meet the need of accessibility of the travellers?
 
-Another useful perspective is taht we could eventually, in our calculation of general accessibility of a city, put weights to travelling times
+Another useful perspective is that we could eventually, in our calculation of general accessibility of a city, put weights to travelling times
 from or to other cities by a factor of the reverse of their geographical distances. In fact, one can natually consider that the accessibility of
-a city has a much more important meaning to its neighborhooid than to some other city 300 km away. Of course a such modification would need more mathematical treatments.
+a city has a much more important meaning to its neighborhooid than to some other city 300 km away. Of course a such modification would need finer mathematical treatments.
+
+One of the main purposes of this work that one would expect, is to allow us to understand who actually profits more from the accessibility of the cities, and for what reason. 
+this might need to compare the present visualization with a further study of public transport users. Another important interest in this work would be to know who travels: according to their age group,
+origin and so on. Finally, one can also be concerned with the comparison of the socio-ecomonic impact of the city accessibility on a countrywide scale with that on a urbain-suburbain scale.
+
+
