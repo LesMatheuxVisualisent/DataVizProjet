@@ -88,9 +88,9 @@
 %%\affiliation{\scriptsize Martha Stewart Enterprises \\ Microsoft Research}
 
 %% Author and Affiliation (multiple authors with multiple affiliations)
-\author{Elia-Swarth \thanks{email:}\\ %
+\author{ Kiampamba-H'apele Elia-Swarth \thanks{e-mail: elia-swarth.kiampamba-hapele@etu.univ-lyon1.fr}\\ %
        %
-\and Xian\thanks{e-mail: xian@aol.com}\\ %
+\and Yang Xian\thanks{e-mail: xian.yang@etu.univ-lyon1.fr}\\ %
       %
 \and Aujogue Jean-baptiste\thanks{e-mail: jb.aujogue@gmail.com}} %
      
@@ -167,44 +167,32 @@ The visualization should be divided into two parts: A first part should carry in
 %\subsection{Historique de l'étude de l'accessibilité au sein d'un territoire}
 
 %\vspace{0.3cm}
-\subsection{Socio-economic impact of accessibility}
+%\subsection{Socio-economic impact of accessibility}
 
-\vspace{0.2cm}
-
-Pour une étude de l'impact de l'efficacité du réseaux intra-urbain sur le marché de l'emploi au seins des grandes villes de France on peut consulter \cite{}.
-
-In the everyday life accessibility may easily be observed: It indeed is the cause of direct and indirect creation of jobs, a raise in corporation productivity, enforce new partnerships, facilitate exchanges, and reduces transport costs and its environmental impact.
+%\vspace{0.2cm}
 
 
+The impact of the accessibility of a city on its socio-economic aspects is a widely studied topic, with numerous articles discussing this question and entire scientific journals dedicated to it. For instance, the study \cite{lee1997impact} explains the relation between the effectiveness of the intra-urbain transportation network and the labour market of principal French cities. It supports the idea that accessibility at local scale has notable impacts, such as direct and indirect creation of jobs, a raise in corporation productivity, an enforcement of new partnerships, exchanges facilitation, and a lowering of transport costs and its environmental impact. The work \cite{cao2017investigating} and references therein gives more sights of the impact of the geometry of the railway network for further reading. 
 
-Dans ce travail, on souhaite montrer le degré d'accessibilité des principales villes de France metropolotaine. 
-% Concentration de l'activité dans les centres névralgiques de réseaux. Une répartition uniforme des voies de transport au sein d'un territoire permet la formation de zones économiquement autonomes.
 
-Une mauvaise accessibilité peut etre une raison suffisante pour un bachelier de ne pas effectuer ses études dans ladite région
+%\subsection{Existing visualization methods and case-studies}
+
+
+The visualization of traffic conditions and accessibility is, on the other hand, also a widely considered problem. It is actually an old issue, as shown in the following example: In the figure below one sees the changes of traveling time to Paris from other French cities, during a period of 200 years, which dates back to 130 years ago! For a discussion on this matter one can see \cite{schoedon2016interactive}.
 
 
 
-L'étude des phénomenes de concentration de population (et donc de la puissance economique) en certains poles prend évidement en compte l'accessibilité de ces poles comme facteur d'accélération de cette concentration et l'excusivité de ces poles 
-
-\subsection{Existing visualization methods and case-studies}
-
-\vspace{0.2cm}
-
-De nombreuses visualisation de l'état du traffic à grande échelle (et à petite échelle) sont disponibles. La figure 1 ci-apres montre une visualisation des temps de trajet vers Paris, suporposant ces temps sur une période de 200 ans, qui remonte à 130 ans en arriere ! pour une discussion à ce propos on pourra consulter \cite{schoedon2016interactive}.  Pour une présentation vulgarisée bien plus récente sur l'évolution des temps de trajet en train on pourra voir \cite{LeMonde1}.
 
 
 
 \begin{figure}[h]
  \centering % avoid the use of \begin{center}...\end{center} and use \centering instead (more compact)
- \includegraphics[scale=1, width=\columnwidth]{Fig-15-Anamorphic-map-Acceleration-of-Travel-in-France-over-200-Years-Acceleration}
- \caption{\textit{Acc\'el\'eration des voyages en France depuis 200 ans}, from \cite{Cheysson} }
+ \includegraphics[scale=1, width=\columnwidth]{Vieille_Carte.png}
+ \caption{\textit{Acceleration of travel times in metropolitan France during the past 200 years}, from \cite{Cheysson} }
  \label{fig:sample}
 \end{figure}
 
-
-
-
-La quantité d'articles traitant de l'impact des réseaux de transport sur la société est immense. Des revues entieres sont dédiées à ce sujet. Pour une lecture de certains aspects de l'impact de la géométrie du réseau de chemain de fer on pourra par exemple lire \cite{cao2017investigating} et les references mentionnées.
+A more interactive and recent visualization of the same subject, yet focused on travelling time by the railway, is available in \cite{LeMonde1}.
 
 
 \section{Presentation of our visualization}
@@ -230,32 +218,14 @@ The number of journeys to be treated dramatically increases as more cities and d
 
 \subsection{Visualization structure}
 
-The visualization of cities accessibility starts in the first place with a synthetic view: a topographic map of France, where "mountains" represent cities
-that are easier to access in general and valleys the ones who have a lower mean accessibility.  
+The visualization of cities accessibility starts in the first place with a synthetic view: a topographic map of France, where "mountains" represent cities that are easier to access in general and valleys the ones who have a lower mean accessibility.  
   
-The main part of the visualization takes the form of a national map as well. However, here, the user is asked to position his cursor over a city.
-This action will trigger off a coloration of the maps, whether in gradually changing gray or in contour blocks, as being shown in the figure, where
-the shade of the color represents the travelling time from other places of France to this city (or the other way round from this city to other places).
-The advantages to use a colored map in our visualization are here very clear: one can not only rapidly grasp the accessiblity of other places in France
-with respect to this city, but the comparison of the distances in terms of travelling time to the geographical ones is also immediate.
-It is noteworthy as well that we offer the user two options in the visualization: he could switch between railway and automobile as transportation means and between
-summer and winter as the season that the journey should take place, for the reason that depending on the month of a year, the SNCF timtable and tha road condition of the highways could also vary.
-Plus, we give the user the possiblity to select both of the tranportation means. In that case, the map will be displayed with two colors,
-each of them representing respectively train or car, indicating the quicker way to get to a place. Again, we find such representation with a colored map very attractive, in the way that
-it could bring immediately the competitivity of both transportations means to light.
+The main part of the visualization takes the form of a national map as well. However, here, the user is asked to position his cursor over a city. This action will trigger off a coloration of the maps, either by displaying contour blocks of by coloring the map with increasing intensity as the traveling distance increases, as illustrated in Figure 2 below. In this picture the shade of the color represents the traveling time from other places of France to this city (or the other way round from this city to other places).
 
 
 
 
-
-\vspace{0.2cm}
-
-La visualisation de l'accessibilité de chaque ville passe d'abord par une vue synthétique: Une seule carte du territoire, couverte par une surface ondulante, dont les pics correspondent aux zones les plus accessibles et les creux aux zones les moins accessibles. 
-
-Le corps de la visualisation se présente également sous forme d'une carte du territoire, mais ou l'utilisateur est demandé de pointer une ville. Cette action déclenche une coloration de la carte, en nuances de gris ou par paliers de couleurs, qui permet de représenter le temps de trajet depuis n'importe quel point jusqu'à cette ville (ou inversement, depuis cette ville jusqu'à n'importe quel point de la carte). Les avantages d'une représentation par carte par rapport à d'autres solutions de visualisation sont multiples: On saisit en un instant la répartition des zones les plus accessibles depuis cette ville, et la comparaison avec la distance géographique réelle est immédiate. Dans cette visualisation deux options seront disponibles: Celle de choisir entre mode de transport (voiture et train), et celle de choisir la saison (été ou hiver). 
-
-
-\begin{figure}[tb]
+\begin{figure}[h]
  \centering % avoid the use of \begin{center}...\end{center} and use \centering instead (more compact)
  \includegraphics[scale=1, width=\columnwidth]{carte-france23.png}
  \caption{A visualization of traveling times towards the city of Lyon.}
@@ -267,56 +237,39 @@ Le corps de la visualisation se présente également sous forme d'une carte du t
 %champs scalaires / carte de topographie contours ?
 %\end{center}
 
+The advantages to use a colored map in our visualization are here very clear: one can not only rapidly grasp the accessibility of other places in France with respect to this city, but the comparison between traveling times and actual distances is also immediate.
 
-Nous mettons également à disponibilité la possibilité de sélectionner les deux modes de transport: Dans ce cas, étant donnée une ville sélectionnée, la carte présente alors une partition bicolore du territoire, selon le mode de transport le plus avantageux pour se rendre en ce point. Là encore, une représentation en carte donne un comparatif immédiat du mode de transport à privilégier pour un déplacement.
+It is noteworthy as well that we offer the user two options in the visualization: He could switch between railway and automobile as transportation mean and between summer and winter as the season the journey should take place in, for the reason that depending on the month of a year, the SNCF timetable and the road conditions of the highways could also vary.
+Plus, we give the user the possibility to select both of the transportation means. In that case, the map will be displayed with two colors, each of them representing respectively train or car, indicating the quicker way to get to a place. Again, we find such representation with a colored map very attractive, in the way that
+it could bring immediately the competitiveness of both transportation means to light.
 
-\subsection{Implémentation}
+
+\subsection{Implementation}
 
 \vspace{0.2cm}
 
-
-La donnée disponible détermine le temps de trajet inter-ville parmis une liste établie de villes, et il est alors nécessaire d'étendre ceci afin de définir un temps de trajet entre deux points quelconques deu territoire. Une approximation de ceci peut etre obtenue en définissant un grille  Pour 
-La connaissance essentielle dont nous avons besoin est le temps de trajet entre deux villes parmis une collection assez dense sur le territoire. De cette facon, nous pouvons\\
-
-deux jeux de données: un pour la carte, l'autre avec les infos à afficher, avec un mapping de l'un vers l'autre.
-
-%\section{Présentations alternatives}
 
 In this project, the javascript library d3.js will be our top priority as a visualizing tool, 
 not only for its high compatibility with geodata, but also for the wide variety it offers in terms of graphical expressivity of a map. 
 As a result, among all technique details, our first concern will be to select the appropriate d3 template which could be as suitable as possible for our data type.
-For this reason, our choice could go for a topographic map, which allows us to manipulate the average accessibilities of the cities directly. It could
-also be a voronoi map, as each cell can represents roughly a French Commune so that it will make it easier to extend the pointwise distances to the whole plane.
+For this reason, our choice could go for a topographic map, which allows us to manipulate the average accessibility of the cities directly. It could also be a Voronoi map, as each cell can represents roughly a French commune so that it will make it easier to extend the pointwise distances to the whole surface.
 
-The second useful thought which could possibly rend our visualization even more user-friendly is, once a city is selected by the user, if or not we will connnect 
-other main French cities with this one using a arc, just like an airway course map with the travelling time in number in the middle over each arc. Moreover, we could  
-eventually consider to animate them so that an arc joining faster the selected city represents a shorter travelling time etc.
+The second useful thought which could possibly rend our visualization even more user-friendly is, once a city is selected by the user, if or not we will connnect other main French cities with this one using a arc, just like an airway course map with the traveling time in number in the middle over each arc. Moreover, we could  
+eventually consider to animate them so that an arc joining faster the selected city represents a shorter traveling time etc.
 
-Since we would like to construct a continous color map instead of isolated colorful cities, while on the other hand it is impossible to include every place of France
-in our culcalation of distances like we explained above, a solution of approximation need to be found for less populated cities and villages. For instance, a 
-treatment using a Voronoi map could be employed just like mentioned previously. But we can also solve this problem more mathematically.
+Since we would like to construct a continuous color map instead of isolated colorful cities, and because it is impossible to include every place of France in our calculation of distances like we explained above, a solution of approximation need to be found for less populated cities and villages. For instance, a treatment using a Voronoi map could be employed just like mentioned previously. But we can also solve this problem more mathematically  e.g. using interpolation methods.
 
 
-\section{Conclusion et perspectives}
+\section{Conclusion and perspectives}
 
 \vspace{0.2cm}
 
-Dans ce travail on a présenté un facon de visualiser l'accessibilité d'une ville en France metropolitaine. Nous avons choisi une vue en carte, privilégiant ainsi une visualization simple et peu abstraite, mais efficace. Une telle présentation peut etre complétée de nombreuses manières.
+In this work we presented a visualization method of the accessibility of a city in metropolitan France, displaying how accessibility is distributed among the territory. We privileged a map structure which is simple, intuitive but also effective. A structure that could be further perfected in many ways. A question that one can raise is if well accessibility makes a city a significant destination. Conversely, we may compare accessibility of a city with the actual needs of travelers.
 
-Une question naturelle est de pouvoir comparer cette accessibilité à l'utilisation globale faite des réseaux de transport: Une ville accessible est-elle effectivement une destination importante ? A l'inverse, l'accessibilité d'une ville avec beaucoup d'affluence possede-t-elle une accessibilité à la hauteur des besoins ?  
+Another interesting perspective is whether we could eventually, in our calculation of general accessibility of a city, put weights on traveling times so that cities being far away are penalized. Indeed, one can naturally consider that accessibility of a city has a much more important meaning to its neighborhood than to some other city 300 km away. Of course a such modification would need finer mathematical treatments.
 
+Finally, the present visualization might be compared with a further study of public transport users, that is, compare this map with the statistics on who travels: according to their age group, origin, motivation and so on. Finally, one can also be concerned with the comparison of the socio-ecomonic impact of the city accessibility on a countrywide scale with that on a urbain-suburbain scale.
 
-Une perspective serait également de proposer une pondération du facteur d'accessibilité d'une ville en fonction du temps de trajet: En effet, il est naturel de penser que l'accessibilité d'une ville a un impact beaucoup plus important dans son voisinage que sur des régions plus distantes, susceptibles d'etre elles-memes attirées par un pole d'attractivité plus proche. La calibration d'un tel poids est évidemment un probleme délicat à aborder.
-
-
- Un premier apport envisageable est de voir à qui profite le plus de cette accessibilité, et pour quelle raison: ceci nécessite de corréler la présentation faite avec une étude utilisateurs des réseaux de transport.  
-
-
-
-
-
-Un autre aspect d'intéret est de savoir qui voyage: la proportion de voyageurs selon des tranches d'age, de zone d'origine.
-Enfin il serait intérressant de comparer l'impact socio-économique du degré de mobilité à l'échelle territoriala avec celle d'échelle péri-urbaine. 
 
 
 %% if specified like this the section will be committed in review mode
