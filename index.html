@@ -1,8 +1,628 @@
+<!-- index.html -->
+
+<!DOCTYPE html> 
+
 <html>
+<head>
+  <meta charset="utf-8">
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+  <style>
+    body { margin:0;position:fixed;top:0;right:0;bottom:0;left:0; }
+    .hidden { display: none;       			
+    				}
+    div.tooltip { color: #222;
+        					background-color: #fff;
+        					padding: .5em; // padding: 2px;
+        					text-shadow: #f5f5f5 0 1px 0;
+        					border-radius: 2px;
+        					opacity: 0.8;
+        					position: absolute;
+      						text-align: center;
+    							//width: 100px;
+    							//height: 25px;   
+    							font: 12px sans-serif;
+    							border: 0px;
+    							pointer-events: none;
+}
+    
+  </style>
+</head> 
 
 <body>
-Bienvenue
+  <script>
+    
+// I. Définition des éléments principaux -------------------------------------------------
+    
+    
+// La taille du cadre
+		var width = 1000,
+  		  height = 580;
 
+    
+// Création de l'élément SVG ajouté au corps du code
+		var svg = d3.select( "body" ) 
+    	.append( "svg" )						
+		  .attr( "width", width )			
+		  .attr( "height", height  );
+   
+    
+// On rajoute un groupe englobant toute la visualisation
+    var g = svg.append("g");
+  
+    
+// définit le type de projection sur plan 2D
+    var projection = d3.geoConicConformal()
+    									 .center([2.454071, 46.279229])
+    									 .scale(2800);
+    
+    var departementFormat = d3.geoPath() 
+                 				 			.projection(projection);
+ 
+    
+// On spécifie 3 échelles de couleurs (les 2eme et 3eme sont tres similaires)
+		var color = d3.scaleQuantize()
+									.range(["rgb(211,231,213)",
+                          "rgb(173,221,156)",
+              						"rgb(120,206,147)",
+                          "rgb(71,188,106)",
+													"rgb(67,157,100)", 
+                          "rgb(58,135,86)",
+              						"rgb(36,121,98)",
+                          "rgb(36,116,121)",
+              						"rgb(0,87,96)",
+                        	"rgb(0,59,66)",
+                         	"rgb(0,0,0)"])
+             			.domain([0, 11]);
+     
+    
+		var colorBis = d3.scaleQuantize()
+                     .range(["rgb(255,235,158)",
+                             "rgb(239,191,0)",
+                             "rgb(255,144,0)",
+                             "rgb(214,92,0)",
+                             "rgb(158,42,0)", 
+                            ])
+                     .domain([0, 5]);    
+
+		var colorTer = d3.scaleQuantize()
+                     .range(["rgb(158,42,0)",
+                             "rgb(214,92,0)",
+                             "rgb(255,144,0)",
+                             "rgb(239,191,0)",
+                             "rgb(255,235,158)"
+                            ])
+                     .domain([3.8, 7.3]);    
+
+    
+// On définit la couleur des boutons de base et lors du clic
+    var couleurRien = "white";
+    var couleurClique = "rgb(241,64,79)";
+    
+    
+    
+// Définition d'un cadre d'affichage de texte
+    var tooltip = d3.select('body') 
+    								.append('div')
+          					.attr('class', 'hidden tooltip');
+    
+
+    
+    
+// II. Chargement des données et opérations élémentaires ----------------------------------
+
+    
+// Chargement des données de la carte et des temps de trajet    
+    d3.json("departements.geojson", function(json) {
+  	d3.json("Donnees_Completes.json", function(json6) {   
+    
+    
+// Association du nom de capitale et temps d'acces moyen à chaque département
+    for (var j = 0; j < json.features.length; j++) {  
+      
+      var NumDep = json.features[j].properties.code;
+			for (var i = 0; i < json6.Dep.length; i++) {  
+                   
+        if (json6['Dep'][i].NoDep == NumDep) {
+     
+          json.features[j].properties.Ville = json6['Dep'][i].nomCap;
+          json.features[j].properties.TempsMoyen = d3.format(".3n")(json6['Dep'][i].TpsAcces);
+          
+          break;
+        } // fin du if
+      } 	// fin du for en 'i'  
+    }			// fin du for en 'j' 
+    
+
+
+// III. Définitions des boutons, légendes et cartes à afficher ----------------------------
+
+// III.1 Legende
+      
+// Legende en mode interactif
+    var legend = svg.append('g')
+                    .attr('transform', 'translate(830, 75)')
+                    .attr('id', 'legend')
+                    .selectAll('.colorbar')
+                    .data(d3.range(11));
+      
+      
+  legend.enter()
+    		.append('svg:rect') 
+        .attr('y', function(d) { return d * 30 + 'px'; })
+        .attr('height', '30px')
+        .attr('width', '15px')
+        .attr('x', '0px')
+        .style("fill", function(d) {return color(d);});
+    
+
+    var legendScale = d3.scaleLinear()
+                        .domain([0, 11])
+                        .range([0, 11 * 30]);
+    
+    var legendAxis = svg.append("g")
+                        .attr('transform', 'translate(850, 75)')
+                        .attr('id', 'legendAxis')
+                        .call(d3.axisRight()
+                                .scale(legendScale)
+                                .tickFormat(function(d) {       					
+                                    var res = [d + "h"]      					
+                                    if ( d == 11 ){
+                                      res = ["plus de 10h"];                
+                                    }
+                          return res; })
+                             );
+      
+
+    
+// Légende en mode synthese   
+    var legendBis = svg.append('g')
+                       .attr('transform', 'translate(830, 75)')
+                       .attr('id', 'legendBis')
+                       .selectAll('.colorbar')
+                       .data(d3.range(5));
+      
+      
+ 	  legendBis.enter()
+             .append('svg:rect')
+             .attr('y', function(d) { return d * 66 + 'px'; })
+             .attr('height', '66px')
+             .attr('width', '15px')
+             .attr('x', '0px')
+             .style("fill", function(d) {return colorBis(4- d);});
+    
+    
+    var legendScaleBis = d3.scaleLinear()
+                           .domain([0, 5])
+                           .range([0, 5 * 66]);
+    
+    var legendAxisBis = svg.append("g")
+                           .attr('transform', 'translate(850, 75)')
+                           .attr('id', 'legendAxisBis')
+                           .call(d3.axisRight()
+                                   .scale(legendScaleBis)
+                                   .ticks(5)
+                                   .tickFormat(function(d) {
+                                    var res = [];   					
+                                    if (d == 0 ){
+                                      res = ["3h"];                
+                                    }
+                                    if (d == 1 ){
+                                      res = ["4h"];                
+                                    }
+                                    if (d == 2 ){
+                                      res = ["5h"];                
+                                    }
+                                    if (d == 3 ){
+                                      res = ["6h"];                
+                                    }
+                                    if (d == 4 ){
+                                      res = ["7H"];                
+                                    }
+                                    if (d == 5 ){
+                                      res = ["8h"];
+                                    };
+                          return res; })
+                            );
+      
+
+    
+// III.2 Boutons
+    
+
+// Fonction de création et update des boutons en fonction du mode 'synthese/interactif'    
+  function FonctionBoutons(GrosMode){
+   
+    
+// Données élémentaires pour deux boutons    
+    var boutons = [ {'mode' : 'synthese',
+                     'num' : 0, 
+                     'x' : 50,
+                     'y' : 250, 
+                     'texte' : 'Vue synthétique'
+                    }, 
+                    {'mode' : 'interactif',
+                     'num' : 1, 
+                     'x' : 50, 
+                     'y' : 300, 
+                     'texte' : 'Vue interactive' 
+                    } 
+                  ]; 
+
+ 
+// Création des deux boutons avec bind sur les données précédentes
+    Boutons = g.selectAll("rect")
+      				 .data(boutons)
+    					 .attr('id', 'Bouton');
+
+    
+// Affichage du texte associé à chaque bouton  
+    Boutons.enter()
+           .append("text") 
+           .attr("x", function(d) { return d['x'] + 40; })
+           .attr("y", function(d) { return d['y'] + 15; })
+           .text(function(d) { return d['texte']; })
+           .style("font-size", 16)
+           .style("font-family", "Sans-Serif");
+    
+    
+// Spécifications de chaque bouton     
+     Boutons.enter()
+            .append("rect") 
+            .attr("class", "enter")
+            .attr("x", function(d) { return d['x']; })
+            .attr("y", function(d) { return d['y']; })
+            .attr("height", '20px')
+            .attr("width", '20px' )    	
+            .style("fill",function(d){
+                var col = couleurRien;
+                if( d['mode'] == GrosMode){
+                  col = couleurClique;
+                };
+                return col;
+                })
+            .attr("stroke", "black")
+            .attr("stroke-width", 1)
+            .on("mouseover", function(d) {
+              d3.select(this)
+                .transition()
+                .duration(300)
+                .attr("x", function(d) { return d['x'] - 4; })
+                .attr("y", function(d) { return d['y'] - 4; })
+                .attr("height", '28px')
+                .attr("width", '28px' );      
+            })     	
+            .on("mouseout", function(d) {
+              d3.select(this)
+                .transition()
+                .duration(300)
+                .attr("x", function(d) { return d['x'] ; }) 
+                .attr("y", function(d) { return d['y'] ; })
+                .attr("height", '20px')
+                .attr("width", '20px' );      
+            });
+
+    
+    
+// Spécifications des updates de chaque bouton   
+	 Boutons.attr("class", "update") 
+          .attr("x", function(d) {
+            var s = d['x'];
+            if (d['mode'] == GrosMode){
+                s = d['x'] -4; 
+            }
+        return s; })
+          .attr("y", function(d) { 
+            var s = d['y'];
+            if (d['mode'] == GrosMode){
+                s = d['y'] -4; 
+            }
+        return s; })
+          .attr("height", function(d) {
+            var s = '20px';
+            if (d['mode'] == GrosMode){
+                s = '28px'; 
+            }
+        return s; })
+          .attr("width", function(d) {
+            var s = '20px';
+            if (d['mode'] == GrosMode){
+                s = '28px'; 
+            }
+        return s; } )
+          .style("fill",function(d){
+              var col = couleurRien;
+              if( d['mode'] == GrosMode){
+                col = couleurClique;
+              };
+              return col;
+              })
+          .attr("stroke", "black")
+          .attr("stroke-width", 1)
+          .on("mouseover", function(d) {    
+            d3.select(this)
+              .transition()
+              .duration(300)
+              .attr("x", function(d) { return d['x'] - 4; })
+              .attr("y", function(d) { return d['y'] - 4; })
+              .attr("height", '28px')
+              .attr("width", '28px');      
+          })     	
+          .on("mouseout", function(d) {
+            d3.select(this)
+              .transition()
+              .duration(300)
+              .attr("x", function(d) { return d['x']; }) 
+              .attr("y", function(d) { return d['y'] ; })
+              .attr("height", '20px')
+              .attr("width", '20px' );  
+          });
+      
+    }; // fin de FonctionBoutons
+    
+       
+   
+        
+// III.3 Coloriage de la carte
+  
+      
+// Fonction de coloriage avec en parametres:
+//		- Un département à partir duquel on fait un affichage du temps de trajet
+//    - Le mode actuel "synthétique/interactif"
+//    - Une variable de valeur 1 seulement lorsque la fonction est appellée par un clic sur 				la carte lors du mode interactif
+      
+    function Coloriage(Origine, GrosMode, ChangementLocal) {
+
+      
+// Création de la carte par bind de la donnée des départements du fichier json, où on a oté les deux départements de la corse (2A et 2B)      
+      carte = g.selectAll("path")     
+               .data(json.features.filter(function(d){return d.properties.code != '2A' 
+        																									&& d.properties.code != '2B' ;																												}
+                                         )
+                    ); 
+       
+      
+// Spécification de l'affichage des départements lors du premier appel de la fonction      
+      carte.enter()
+        	 .append("path")
+      		 .attr('transform', 'translate(25, 0)')
+       		 .attr("class", "enter") 
+        	 .attr("d", departementFormat)
+       		 .style("fill",  function(d){ 
+  if (GrosMode == 'synthese') {
+   d.properties.Texte = "Temps de trajet moyen : " + d.properties.TempsMoyen;         						
+   return colorTer(d.properties.TempsMoyen);
+ }  
+ if (GrosMode == 'interactif') { 
+  		
+      var TempsTrajet = 0;
+      var TempsHeures = "NC";
+      var Destination = d.properties.Ville;
+        
+      for (var i = 0; i < json6.Dep.length; i++) {  
+        for (var j = 0; j < json6.Dep.length ; j++) { 
+      	  if (json6['Dep'][i].Destinations[j].Donnee != 'NC') {
+         
+						var OrigineTable = json6['Dep'][i].nomCap	
+						var DestinationTable = json6['Dep'][i].Destinations[j].nomCap
+
+          	if (OrigineTable == Origine 
+              & DestinationTable == Destination 
+              & json6['Dep'][i].Destinations[j].Donnee['status'] != 'ZERO_RESULTS' 
+              & json6['Dep'][i].Destinations[j].Donnee['status'] != 'NOT_FOUND') {
+          
+								TempsHeures = json6['Dep'][i].Destinations[j]
+                  													 .Donnee['duration']['text'];
+
+								TempsTrajet = json6['Dep'][i].Destinations[j]
+                  													 .Donnee['duration']['value']/ 3600;
+              
+              	break;
+          	} // fin du if
+        	} 	// fin du if	  
+        } 		// fin du for en 'j'
+      } 	 		// fin du for en 'i' 
+
+         
+      d.properties.TempsHeures = TempsHeures;
+      d.properties.Temps = parseFloat(TempsTrajet);
+   		d.properties.Texte = "Temps de Trajet depuis " 
+        								 + Origine
+        								 + " : " 
+        								 + d.properties.TempsHeures;
+      var couleur = color(TempsTrajet); 
+      			if (Origine == Destination) {
+        				couleur = couleurClique;
+      			}
+        
+      			return couleur;
+       
+      }
+      			})
+       			.attr("stroke", "white")
+        		.attr("stroke-width", 0) 
+      			.on("mouseover", function(d, i) {
+      					d3.select(this)
+               	  .style("opacity", 0.7);
+//                 	.transition()
+//                   .duration(100)
+//                   .attr("stroke", "white")
+//                 	.attr("stroke-width", 1.2);     
+    				})
+            .on('mousemove', function(d) {
+                    var mouse = d3.mouse(svg.node())
+                    							.map(function(d) {return parseInt(d);});
+        						
+                    tooltip.classed('hidden', false)
+                        .attr('style', 'left:' + (mouse[0] + 35) +
+                                'px; top:' + (mouse[1] - 35) + 'px')
+                        .html(d.properties.nom 
+                            + " (" 
+                            + d.properties.code 
+                            + ")" 
+                            + "<br>"
+                            + "Capitale : " 
+                            + d.properties.Ville 
+                            + "<br>"
+                            + d.properties.Texte); 
+                    }) // fin du onMouseMove
+             .on('mouseout', function(d, i) {
+        				tooltip.classed('hidden', true);
+      					d3.select(this)
+                	.style("opacity", 1);
+//                   .transition()
+//                   .duration(100)
+//                   .attr("stroke", "white")
+//                 	.attr("stroke-width", 0);      
+    				}); // fin du onMouseOut
+                    
+            
+      			 
+// Spécification des updates de la carte         
+       carte.attr("class", "update") 
+        		.attr("d", departementFormat)  
+       			.attr("stroke", "white")
+        		.attr("stroke-width", 0)
+       			.on("mouseover", function(d, i) {
+      					d3.select(this)
+                	.style("opacity", 0.7);
+//                 	.transition()
+//                   .duration(100)               	
+//                   .attr("stroke", "white")
+//                 	.attr("stroke-width", 1.2);     
+    				})
+            .on('mousemove', function(d) {
+                    var mouse = d3.mouse(svg.node()).map(function(p) {
+                        return parseInt(p);
+                    }); 
+                    tooltip.classed('hidden', false)
+                        .attr('style', 'left:' + (mouse[0] + 35) +
+                                'px; top:' + (mouse[1] - 35) + 'px')
+                        .html(d.properties.nom 
+                            + " (" 
+                            + d.properties.code 
+                            + ")" 
+                            + "<br>"
+                            + "Capitale : " 
+                            + d.properties.Ville 
+                            + "<br>"
+                            + d.properties.Texte); 
+                    }) // fin du onMouseMove
+             .on('mouseout', function() {
+                    tooltip.classed('hidden', true);
+                    d3.select(this)
+                    	.style("opacity", 1);
+//                       .transition()
+//                       .duration(100)                    	
+//                       .attr("stroke", "white")
+//                       .attr("stroke-width", 0);   
+             }) // fin du onMouseOut
+      			.transition()
+          	.duration(function(d){
+                 var duree = 1200 ;
+                 if (ChangementLocal == 1) {
+                   duree = 600;
+                 };
+                 return duree;
+               })
+       			.style("fill",  function(d){ 
+ if (GrosMode == 'synthese') {
+   d.properties.Texte = "Temps de Trajet moyen : " + d.properties.TempsMoyen;
+   return colorTer(d.properties.TempsMoyen);
+ }  
+ if (GrosMode == 'interactif') { 
+   
+         		var TempsTrajet = 0;        		
+         		var TempsHeures = "NC";         
+         		var Destination = d.properties.Ville;
+            
+            for (var i = 0; i < json6.Dep.length; i++) {  
+               for (var j = 0; j < json6.Dep.length ; j++) { 
+      						if (json6['Dep'][i].Destinations[j].Donnee != 'NC') {
+         
+var OrigineTable = json6['Dep'][i].nomCap	
+var DestinationTable = json6['Dep'][i].Destinations[j].nomCap
+
+                  if (OrigineTable == Origine 
+                    & DestinationTable == Destination 
+                    & json6['Dep'][i].Destinations[j].Donnee['status'] != 'ZERO_RESULTS'
+                    & json6['Dep'][i].Destinations[j].Donnee['status'] != 'NOT_FOUND') {
+
+                  
+TempsHeures =  json6['Dep'][i].Destinations[j].Donnee['duration']['text'];
+TempsTrajet =  json6['Dep'][i].Destinations[j].Donnee['duration']['value']/ 3600;
+              
+              	break;
+          				} // fin du if
+        					} // fin du if	  
+            	 } 		// fin du for en 'j'
+        		} 	 		// fin du for en 'i' 
+
+         
+         		d.properties.TempsHeures = TempsHeures;
+         		d.properties.Temps = parseFloat(TempsTrajet);
+   					d.properties.Texte = "Temps de Trajet depuis " 
+              								 + Origine 
+              								 + " : " 
+              								 + d.properties.TempsHeures;
+        		var couleur = color(TempsTrajet); 
+      			if (Origine == Destination) {
+        				couleur = couleurClique;
+      			}
+        
+      			return couleur;
+ }; // fin du 'if GrosMode interactif'
+       			}); // fin du 'style'
+ 
+      }; // fin de fonction Coloriage
+
+    
+    
+    
+      
+// Initiation de la visualisation
+    var mode = 'interactif'; // synthese 
+    var VilleCliquee = 'Annecy';
+    FonctionBoutons(mode);
+    Coloriage("Annecy", mode);
+    d3.select("#legend").style("opacity", 1);
+    d3.select("#legendAxis").style("opacity", 1);
+    
+    d3.select("#legendBis").style("opacity", 0);    
+    d3.select("#legendAxisBis").style("opacity", 0);
+        
+    
+ // Action lors d'un click sur un département
+      g.selectAll("path")
+        .on('click', function(d) {
+		if (mode == 'interactif') { 
+      			VilleCliquee = d.properties.Ville;
+        		Coloriage(VilleCliquee , 'interactif', 1);
+    };
+        }); // fin du click
+
+
+    
+
+    
+    g.selectAll("rect")
+     .on("click", function(d, i) {      	       
+       	mode = d['mode'];
+      	FonctionBoutons(mode);
+				Coloriage(VilleCliquee, mode , 0);
+// 				FonctionLegende(mode);
+      	console.log(i);
+        d3.transition().duration(1200).select("#legend").style("opacity",  i); 
+      	d3.transition().duration(1200).select("#legendAxis").style("opacity", i);
+      
+        d3.transition().duration(1200).select("#legendBis").style("opacity", 1- i);        
+        d3.transition().duration(1200).select("#legendAxisBis").style("opacity", 1- i);
+    	});
+     	  
+      
+    });// fin du json6       
+    });// fin du json
+
+  </script>
 </body>
-
+  
 </html>
