@@ -3,6 +3,7 @@
 <!DOCTYPE html> 
 
 <html>
+<!DOCTYPE html> 
 <head>
   <meta charset="utf-8">
   <script src="https://d3js.org/d3.v4.min.js"></script>
@@ -124,8 +125,8 @@
                    
         if (json6['Dep'][i].NoDep == NumDep) {
      
-          json.features[j].properties.Ville = json6['Dep'][i].nomCap;
-          json.features[j].properties.TempsMoyen = d3.format(".3n")(json6['Dep'][i].TpsAcces);
+          json.features[j].properties.Ville = json6['Dep'][i].nomCap;					
+          json.features[j].properties.TempsMoyen = json6['Dep'][i].TpsAcces;
           
           break;
         } // fin du if
