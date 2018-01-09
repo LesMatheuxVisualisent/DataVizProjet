@@ -14,4 +14,4 @@ Contenu du Projet:
 
 
 
-[Page Web]( https://lesmatheuxvisualisent.github.io/DataVizProjet/index.html)
+[Page Web]( https://lesmatheuxvisualisent.github.io/DataVizProjet/)
